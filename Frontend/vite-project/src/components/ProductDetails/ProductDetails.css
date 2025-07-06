@@ -1,0 +1,50 @@
+.product-details-page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #FFFEF2;
+}
+
+.product-details-left img {
+  width: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.product-details-right {
+  max-width: 600px;
+}
+
+.product-price {
+  color: green;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.product-category {
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.product-benefits {
+  margin: 15px 0;
+}
+
+.add-to-cart-btn {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  margin-top: 40px;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #2fc573;
+}

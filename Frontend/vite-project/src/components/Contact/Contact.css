@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Suisse+Intl:wght@400&display=swap');
+
+.contact-section {
+  padding: 60px 20px;
+  background-color: #F5F0EB;
+  font-family: 'Suisse Intl', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-heading {
+  font-size: 36px;
+  color: #413d3d;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.contact-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.contact-box {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 30px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  flex: 1 1 300px;
+  min-width: 280px;
+  max-width: 500px;
+}
+
+.contact-box h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.contact-box p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* ===== Form Styling ===== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px 15px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: 'Suisse Intl', sans-serif;
+}
+
+.contact-form button {
+  padding: 12px;
+  font-size: 16px;
+  background-color: #413d3d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #2c2c2c;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .contact-heading {
+    font-size: 28px;
+  }
+
+  .contact-boxes {
+    flex-direction: column;
+    align-items: center;
+  }
+}

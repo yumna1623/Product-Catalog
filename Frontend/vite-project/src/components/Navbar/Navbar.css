@@ -1,0 +1,135 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFFEF2;
+  color: #333;
+  padding: 10px 40px;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative; /* Make it scroll normally */
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+
+.brand {
+  font-size: 32px;
+  color: #333333;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+}
+
+.brand span {
+  font-weight: 300;
+  font-size: 14px;
+  color: #888;
+  margin-left: 8px;
+  font-style: italic;
+  letter-spacing: 0.3px;
+}
+
+.navbar-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-center a {
+  color: #333333;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 14px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-center a:hover::after {
+  width: 100%;
+}
+
+.navbar-center a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  background-color: #333;
+  transition: width 0.3s ease;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right a {
+  color: #333333;
+  text-decoration: none;
+  margin-left: 12px;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333333;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+/* ✅ Responsive for smaller screens */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 16px 20px;
+  }
+
+  .navbar-center {
+    flex-direction: column;
+    width: 100%;
+    background-color: #FFFEF2;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    overflow: hidden;
+    border-top: 1px solid #eee;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  .navbar-center.open {
+    max-height: 300px;
+    opacity: 1;
+    padding: 10px 0;
+    pointer-events: all;
+  }
+
+  .navbar-center a {
+    margin: 10px 0;
+  }
+
+  .navbar-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+}
