@@ -3,13 +3,17 @@ import './FilterSidebar.css';
 
 const FilterSidebar = ({ filters, onFilterChange }) => {
   const [localFilters, setLocalFilters] = useState(filters);
+  const [isOpen, setIsOpen] = useState(false); // ← toggle state for mobile
 
   const handleCategoryChange = (category) => {
     const newCategories = localFilters.categories.includes(category)
       ? localFilters.categories.filter(c => c !== category)
       : [...localFilters.categories, category];
-
     updateFilters({ ...localFilters, categories: newCategories });
+  };
+
+  const handleSortChange = (e) => {
+    updateFilters({ ...localFilters, sortOrder: e.target.value });
   };
 
   const updateFilters = (newFilters) => {
@@ -18,48 +22,49 @@ const FilterSidebar = ({ filters, onFilterChange }) => {
   };
 
   return (
-    <div className="filter-sidebar">
-      <h3>Filter</h3>
+    <div className={`filter-sidebar-wrapper ${isOpen ? 'open' : ''}`}>
+      {/* Toggle Button on Small Screens */}
+      <button
+        className="filter-toggle"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {isOpen ? 'Close Filters ✖' : 'Open Filters ☰'}
+      </button>
 
-      <div className="filter-group">
-        <label>Price Range</label>
-        <input
-          type="range"
-          min="0"
-          max="1000"
-          value={localFilters.priceRange[1]}
-          onChange={(e) =>
-            updateFilters({ ...localFilters, priceRange: [0, Number(e.target.value)] })
-          }
-        />
-        <span>Up to ${localFilters.priceRange[1]}</span>
-      </div>
+      <div className="filter-sidebar">
+        <h3>Filters</h3>
 
-      <div className="filter-group">
-        <label>Skin Type</label>
-        <select
-          value={localFilters.skinType}
-          onChange={(e) => updateFilters({ ...localFilters, skinType: e.target.value })}
-        >
-          <option value="">All</option>
-          <option value="Oily">Oily</option>
-          <option value="Dry">Dry</option>
-          <option value="Sensitive">Sensitive</option>
-        </select>
-      </div>
+        <div className="filter-group">
+          <label>Categories</label>
+          {[
+            'hand-and-body',
+            'Fragrance',
+            'Skin Care - Dry',
+            'Skin Care - Oily',
+            'Skin Care - Combination'
+          ].map(category => (
+            <div key={category}>
+              <input
+                type="checkbox"
+                checked={localFilters.categories.includes(category)}
+                onChange={() => handleCategoryChange(category)}
+              />
+              <span>{category}</span>
+            </div>
+          ))}
+        </div>
 
-      <div className="filter-group">
-        <label>Categories</label>
-        {['Hand and Body', 'Fragrance', 'Skin', 'Hair'].map(category => (
-          <div key={category}>
-            <input
-              type="checkbox"
-              checked={localFilters.categories.includes(category)}
-              onChange={() => handleCategoryChange(category)}
-            />
-            <span>{category}</span>
-          </div>
-        ))}
+        <div className="filter-group">
+          <label>Sort by Price</label>
+          <select
+            value={localFilters.sortOrder || ''}
+            onChange={handleSortChange}
+          >
+            <option value="">None</option>
+            <option value="lowToHigh">Low to High</option>
+            <option value="highToLow">High to Low</option>
+          </select>
+        </div>
       </div>
     </div>
   );

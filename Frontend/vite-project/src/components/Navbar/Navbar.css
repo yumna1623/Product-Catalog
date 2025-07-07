@@ -5,19 +5,35 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #FFFEF2;
+  background-color: #ebe4e4;
   color: #333;
   padding: 10px 40px;
   font-family: 'Segoe UI', sans-serif;
-  position: relative; /* Make it scroll normally */
+  position: relative;
   z-index: 1000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow-x: hidden;
+  flex-wrap: wrap;
 }
 
+
+/* Make center section absolutely centered */
+.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .brand {
   font-size: 32px;
@@ -35,13 +51,6 @@
   font-style: italic;
   letter-spacing: 0.3px;
 }
-
-.navbar-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .navbar-center a {
   color: #333333;
   text-decoration: none;
@@ -69,12 +78,14 @@
 .navbar-right {
   display: flex;
   align-items: center;
+  margin-left: auto;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
 .navbar-right a {
   color: #333333;
   text-decoration: none;
-  margin-left: 12px;
   font-size: 14px;
   transition: color 0.3s ease;
 }
@@ -85,14 +96,12 @@
   border: none;
   font-size: 24px;
   color: #333333;
-  margin-left: 20px;
   cursor: pointer;
 }
 
-/* ✅ Responsive for smaller screens */
+/* ✅ Responsive Styles */
 @media (max-width: 768px) {
   .navbar {
-    flex-wrap: wrap;
     padding: 16px 20px;
   }
 
@@ -125,11 +134,11 @@
 
   .navbar-right {
     margin-left: auto;
-    display: flex;
-    align-items: center;
+    gap: 10px;
   }
 
   .menu-btn {
     display: block;
+    margin-left: auto;
   }
 }

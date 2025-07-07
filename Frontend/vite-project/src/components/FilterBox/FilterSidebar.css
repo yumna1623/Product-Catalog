@@ -1,16 +1,84 @@
-.filter-sidebar {
+/* Wrapper for toggle behavior */
+.filter-sidebar-wrapper {
+  position: relative;
   width: 250px;
-  background: #f9f9f9;
+}
+
+/* Toggle button for mobile */
+.filter-toggle {
+  display: none;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.filter-sidebar {
+  background: #ffffff;
   padding: 20px;
   border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.filter-sidebar h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
 }
 
 .filter-group {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .filter-group label {
   display: block;
-  font-weight: 500;
-  margin-bottom: 10px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.filter-group select {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.filter-group div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.filter-group input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+/* ✅ Responsive Styles */
+@media (max-width: 768px) {
+  .filter-sidebar-wrapper {
+    width: 100%;
+  }
+
+  .filter-toggle {
+    display: block;
+  }
+
+  .filter-sidebar {
+    display: none;
+    margin-top: 10px;
+  }
+
+  .filter-sidebar-wrapper.open .filter-sidebar {
+    display: block;
+  }
 }
