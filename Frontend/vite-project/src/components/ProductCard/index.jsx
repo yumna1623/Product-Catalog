@@ -7,9 +7,9 @@ const ProductCard = ({ product }) => {
   const navigate = useNavigate();
   const { addToCart } = useContext(CartContext);
 
-  const handleAddToCart = () => {
-    addToCart(product);
-  };
+  // const handleAddToCart = () => {
+  //   addToCart(product);
+  // };
 
   return (
     <div className="product-card">
